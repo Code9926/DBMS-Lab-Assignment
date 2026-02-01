@@ -6,8 +6,8 @@ It includes table creation, data insertion, updating, and deletion operations.
 
 ## File Structure
 DB-Lab-1/
- ->questions.pdf
- ->lab1_solution.sql
+ ->LabAssignment01.pdf
+ ->student_lab.sql
  ->README.md
 
 ## How to Execute
@@ -15,6 +15,7 @@ DB-Lab-1/
 2. Connect to Oracle:
    CONNECT username/password
 3. Run the SQL file:
-   @lab1_solution.sql
+   @student_lab.sql
+
 
 
