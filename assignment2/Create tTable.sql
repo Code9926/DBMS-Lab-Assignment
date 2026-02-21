@@ -1,0 +1,59 @@
+CREATE TABLE Department (
+    Dept_ID VARCHAR2(5) PRIMARY KEY,
+    Dept_Name VARCHAR2(100) NOT NULL,
+    Office_Location VARCHAR2(50)
+);
+
+CREATE TABLE Faculty (
+    Faculty_ID VARCHAR2(5) PRIMARY KEY,
+    Name VARCHAR2(100) NOT NULL,
+    Designation VARCHAR2(50),
+    Email VARCHAR2(100) UNIQUE,
+    Dept_ID VARCHAR2(5),
+    CONSTRAINT fk_faculty_dept
+        FOREIGN KEY (Dept_ID)
+        REFERENCES Department(Dept_ID)
+);
+
+CREATE TABLE Student (
+    Student_ID VARCHAR2(5) PRIMARY KEY,
+    Name VARCHAR2(100) NOT NULL,
+    DOB DATE,
+    Gender VARCHAR2(10),
+    Contact_No VARCHAR2(15),
+    Dept_ID VARCHAR2(5),
+    CONSTRAINT fk_student_dept
+        FOREIGN KEY (Dept_ID)
+        REFERENCES Department(Dept_ID)
+);
+
+CREATE TABLE Course (
+    Course_ID VARCHAR2(5) PRIMARY KEY,
+    Course_Name VARCHAR2(100) NOT NULL,
+    Credits NUMBER(2),
+    Dept_ID VARCHAR2(5),
+    Faculty_ID VARCHAR2(5),
+    CONSTRAINT fk_course_dept
+        FOREIGN KEY (Dept_ID)
+        REFERENCES Department(Dept_ID),
+    CONSTRAINT fk_course_faculty
+        FOREIGN KEY (Faculty_ID)
+        REFERENCES Faculty(Faculty_ID)
+);
+
+CREATE TABLE ENROLLMENT (
+STUDENT_ID VARCHAR2(5),
+COURSE_ID VARCHAR2(5),
+SEMESTER NUMBER(2),
+GRADE VARCHAR2(5),
+CONSTRAINT PK_ENROLLMENT PRIMARY KEY (STUDENT_ID, COURSE_ID),
+CONSTRAINT FK_ENROLL_STUDENT FOREIGN KEY (STUDENT_ID)
+REFERENCES STUDENT(STUDENT_ID),
+CONSTRAINT FK_ENROLL_COURSE FOREIGN KEY (COURSE_ID)
+REFERENCES COURSE(COURSE_ID)
+);
+
+
+
+
+ 
