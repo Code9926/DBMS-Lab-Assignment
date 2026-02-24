@@ -13,6 +13,6 @@
      ->EnrollmentTable.png
      ->StudentTable.png
      ->DepartmentTable.png
-   ->assigmentquestion.md
+   ->assingmentquestion.md
    ->insertion.sql
      
